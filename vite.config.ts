@@ -18,4 +18,5 @@ export default defineConfig({
       "@": "/src",
     },
   },
+  envPrefix: "VITE_", // Only expose environment variables that start with VITE_
 });

@@ -1,4 +1,5 @@
 import axios, { type AxiosInstance, type AxiosResponse } from "axios";
+import { API_CONFIG } from "@/config/api";
 import type {
   ApiResponse,
   LoginRequest,
@@ -14,8 +15,8 @@ class ApiService {
 
   constructor() {
     this.api = axios.create({
-      baseURL: "http://localhost:3000/api/v1",
-      timeout: 10000,
+      baseURL: API_CONFIG.baseURL,
+      timeout: API_CONFIG.timeout,
       headers: {
         "Content-Type": "application/json",
       },
