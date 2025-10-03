@@ -115,8 +115,8 @@ const handleLogin = async () => {
       "Welcome back! You have been logged in successfully."
     );
     router.push("/dashboard");
-  } catch (error) {
-    // Error is handled by the store, but we can add a toast for better UX
+  } catch (err) {
+    console.error("Failed to login:", err);
     error(
       "Login failed",
       "Invalid credentials. Please check your email and password."

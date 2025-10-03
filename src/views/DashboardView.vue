@@ -236,8 +236,8 @@ const statusOptions = [
 const loadTasks = async () => {
   try {
     await tasksStore.fetchTasks();
-  } catch (error) {
-    console.error("Failed to load tasks:", error);
+  } catch (err) {
+    console.error("Failed to load tasks:", err);
     error(
       "Failed to load tasks",
       "There was an error retrieving your tasks. Please try again."
@@ -255,8 +255,8 @@ const loadTasksWithFilters = async () => {
     });
 
     await tasksStore.fetchTasks();
-  } catch (error) {
-    console.error("Failed to load tasks:", error);
+  } catch (err) {
+    console.error("Failed to load tasks:", err);
     error(
       "Failed to load tasks",
       "There was an error retrieving your tasks. Please try again."
@@ -321,8 +321,8 @@ const handleSubmitTask = async (
       success("Task created", "Your new task has been created successfully.");
     }
     closeModal();
-  } catch (error) {
-    console.error("Failed to save task:", error);
+  } catch (err) {
+    console.error("Failed to save task:", err);
     const action = editingTask.value ? "update" : "create";
     error(
       `Failed to ${action} task`,
@@ -349,8 +349,8 @@ const handleUpdateTask = async (
       "Task updated",
       `Task status changed to ${statusLabels[data.status]}.`
     );
-  } catch (error) {
-    console.error("Failed to update task:", error);
+  } catch (err) {
+    console.error("Failed to update task:", err);
     error(
       "Failed to update task",
       "There was an error updating the task status. Please try again."
@@ -363,8 +363,8 @@ const handleDeleteTask = async (taskId: string) => {
     try {
       await tasksStore.deleteTask(taskId);
       success("Task deleted", "The task has been deleted successfully.");
-    } catch (error) {
-      console.error("Failed to delete task:", error);
+    } catch (err) {
+      console.error("Failed to delete task:", err);
       error(
         "Failed to delete task",
         "There was an error deleting the task. Please try again."
